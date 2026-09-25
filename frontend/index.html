@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HireScope — AI Interview Simulator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- ===================== AUTH PAGE ===================== -->
+  <div id="auth-page" class="auth-page">
+    <div class="auth-bg-grid"></div>
+    <div class="auth-orb auth-orb-1"></div>
+    <div class="auth-orb auth-orb-2"></div>
+
+    <div class="auth-container">
+      <!-- Brand -->
+      <div class="auth-brand">
+        <div class="brand-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <span class="brand-name">HireScope</span>
+      </div>
+
+      <!-- Auth Card -->
+      <div class="auth-card">
+        <!-- Login Form -->
+        <div id="login-form" class="auth-form active">
+          <div class="auth-header">
+            <h1 class="auth-title">Welcome back</h1>
+            <p class="auth-subtitle">Sign in to continue your interview prep</p>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="login-email">Email</label>
+            <div class="input-wrapper">
+              <svg class="input-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <input type="email" id="login-email" class="form-input" placeholder="you@example.com" autocomplete="email" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="login-password">Password</label>
+            <div class="input-wrapper">
+              <svg class="input-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              <input type="password" id="login-password" class="form-input" placeholder="••••••••" autocomplete="current-password" />
+              <button class="toggle-password" type="button" data-target="login-password">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <button id="login-btn" class="auth-btn primary-btn">
+            <span>Sign in</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </button>
+
+          <p class="auth-toggle">
+            Don't have an account?
+            <button class="toggle-link" id="go-to-signup">Sign up</button>
+          </p>
+        </div>
+
+        <!-- Signup Form -->
+        <div id="signup-form" class="auth-form">
+          <div class="auth-header">
+            <h1 class="auth-title">Create account</h1>
+            <p class="auth-subtitle">Start your AI-powered interview journey</p>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="signup-name">Full Name</label>
+            <div class="input-wrapper">
+              <svg class="input-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              <input type="text" id="signup-name" class="form-input" placeholder="Alex Johnson" autocomplete="name" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="signup-email">Email</label>
+            <div class="input-wrapper">
+              <svg class="input-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <input type="email" id="signup-email" class="form-input" placeholder="you@example.com" autocomplete="email" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="signup-password">Password</label>
+            <div class="input-wrapper">
+              <svg class="input-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              <input type="password" id="signup-password" class="form-input" placeholder="••••••••" autocomplete="new-password" />
+              <button class="toggle-password" type="button" data-target="signup-password">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="signup-confirm">Confirm Password</label>
+            <div class="input-wrapper">
+              <svg class="input-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <input type="password" id="signup-confirm" class="form-input" placeholder="••••••••" autocomplete="new-password" />
+            </div>
+          </div>
+
+          <button id="signup-btn" class="auth-btn primary-btn">
+            <span>Create account</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </button>
+
+          <p class="auth-toggle">
+            Already have an account?
+            <button class="toggle-link" id="go-to-login">Sign in</button>
+          </p>
+        </div>
+      </div>
+
+      <p class="auth-footer">Powered by AI · Built for ambitious candidates</p>
+    </div>
+  </div>
+
+  <!-- ===================== MAIN APP ===================== -->
+  <div id="main-app" class="main-app hidden">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-top">
+        <div class="sidebar-brand">
+          <div class="brand-icon brand-icon-sm">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+              <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+              <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <span class="brand-name">HireScope</span>
+        </div>
+
+        <button id="new-interview-btn" class="new-interview-btn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          New Interview
+        </button>
+      </div>
+
+      <div class="sidebar-section">
+        <span class="sidebar-section-label">Recent Sessions</span>
+        <div class="session-list" id="session-list">
+          <!-- Sessions populated by JS -->
+          <div class="session-empty">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            <p>No sessions yet</p>
+            <span>Start your first interview</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="sidebar-bottom">
+        <div class="profile-card">
+          <div class="profile-avatar" id="profile-avatar">A</div>
+          <div class="profile-info">
+            <span class="profile-name" id="profile-name">Alex Johnson</span>
+            <span class="profile-status">
+              <span class="status-dot"></span>
+              Active
+            </span>
+          </div>
+          <button class="logout-btn" id="logout-btn" title="Logout">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+          </button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+      <!-- WELCOME SCREEN -->
+      <div class="welcome-screen" id="welcome-screen">
+        <div class="welcome-inner">
+          <div class="welcome-badge">AI-Powered Interview Prep</div>
+          <h1 class="welcome-title">Ready to ace your<br/><span class="gradient-text">next interview?</span></h1>
+          <p class="welcome-desc">HireScope simulates real interview rounds — Resume screening, Technical deep-dives, and HR conversations — powered by AI.</p>
+
+          <div class="role-cards">
+            <button class="role-card" data-role="Frontend Developer">
+              <div class="role-card-icon">⚛️</div>
+              <div class="role-card-info">
+                <span class="role-card-title">Frontend Developer</span>
+                <span class="role-card-sub">React · CSS · JS</span>
+              </div>
+            </button>
+            <button class="role-card" data-role="Backend Engineer">
+              <div class="role-card-icon">⚙️</div>
+              <div class="role-card-info">
+                <span class="role-card-title">Backend Engineer</span>
+                <span class="role-card-sub">APIs · DBs · Systems</span>
+              </div>
+            </button>
+            <button class="role-card" data-role="Data Scientist">
+              <div class="role-card-icon">📊</div>
+              <div class="role-card-info">
+                <span class="role-card-title">Data Scientist</span>
+                <span class="role-card-sub">ML · Python · Stats</span>
+              </div>
+            </button>
+            <button class="role-card" data-role="Product Manager">
+              <div class="role-card-icon">🎯</div>
+              <div class="role-card-info">
+                <span class="role-card-title">Product Manager</span>
+                <span class="role-card-sub">Strategy · Vision · OKRs</span>
+              </div>
+            </button>
+            <button class="role-card" data-role="DevOps Engineer">
+              <div class="role-card-icon">🔧</div>
+              <div class="role-card-info">
+                <span class="role-card-title">DevOps Engineer</span>
+                <span class="role-card-sub">CI/CD · Cloud · Docker</span>
+              </div>
+            </button>
+            <button class="role-card" data-role="Full Stack Developer">
+              <div class="role-card-icon">🌐</div>
+              <div class="role-card-info">
+                <span class="role-card-title">Full Stack Developer</span>
+                <span class="role-card-sub">End-to-end · MERN/PERN</span>
+              </div>
+            </button>
+          </div>
+
+          <p class="welcome-hint">Select a role above or click <strong>+ New Interview</strong> to begin</p>
+        </div>
+      </div>
+
+      <!-- INTERVIEW SCREEN -->
+      <div class="interview-screen hidden" id="interview-screen">
+
+        <!-- Interview Header -->
+        <div class="interview-header">
+          <div class="interview-header-left">
+            <div class="interview-role-badge">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+              <span id="interview-role-title">Frontend Developer Interview</span>
+            </div>
+          </div>
+          <div class="round-pills" id="round-pills">
+            <div class="round-pill active" data-round="resume">
+              <span class="round-pill-dot"></span>
+              Resume
+            </div>
+            <div class="round-divider"></div>
+            <div class="round-pill" data-round="technical">
+              <span class="round-pill-dot"></span>
+              Technical
+            </div>
+            <div class="round-divider"></div>
+            <div class="round-pill" data-round="hr">
+              <span class="round-pill-dot"></span>
+              HR
+            </div>
+          </div>
+        </div>
+
+        <!-- Chat Messages -->
+        <div class="chat-container" id="chat-container">
+          <div class="chat-messages" id="chat-messages">
+            <!-- Messages rendered by chat.js -->
+          </div>
+        </div>
+
+        <!-- Input Area -->
+        <div class="input-area">
+          <div class="input-wrapper-main">
+            <textarea
+              id="answer-input"
+              class="answer-input"
+              placeholder="Type your answer here... (Press Enter to send, Shift+Enter for newline)"
+              rows="1"
+            ></textarea>
+            <div class="input-actions">
+              <span class="char-count" id="char-count">0</span>
+              <button id="send-btn" class="send-btn" disabled>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              </button>
+            </div>
+          </div>
+          <p class="input-hint">HireScope AI is simulating your interviewer · Answers are analyzed for quality</p>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- TOAST NOTIFICATION -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- MODAL: New Interview -->
+  <div class="modal-overlay hidden" id="new-interview-modal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h2 class="modal-title">Start New Interview</h2>
+        <button class="modal-close" id="modal-close">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-field">
+          <label class="form-label">Job Role</label>
+          <div class="input-wrapper">
+            <svg class="input-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            <input type="text" id="modal-role" class="form-input" placeholder="e.g. Frontend Developer" />
+          </div>
+        </div>
+        <div class="modal-field">
+          <label class="form-label">Experience Level</label>
+          <div class="select-wrapper">
+            <select id="modal-level" class="form-select">
+              <option value="fresher">Fresher (0–1 yr)</option>
+              <option value="junior">Junior (1–3 yrs)</option>
+              <option value="mid" selected>Mid-level (3–5 yrs)</option>
+              <option value="senior">Senior (5+ yrs)</option>
+            </select>
+            <svg class="select-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+        </div>
+        <div class="modal-field">
+          <label class="form-label">Interview Focus</label>
+          <div class="focus-pills">
+            <button class="focus-pill active" data-focus="all">All Rounds</button>
+            <button class="focus-pill" data-focus="resume">Resume</button>
+            <button class="focus-pill" data-focus="technical">Technical</button>
+            <button class="focus-pill" data-focus="hr">HR</button>
+          </div>
+        </div>
+
+        <div class="modal-field">
+          <label class="form-label">Resume <span style="color:var(--text-muted);font-weight:400">(optional — PDF)</span></label>
+          <div class="resume-upload-zone" id="resume-upload-zone">
+            <input type="file" id="resume-file-input" accept=".pdf" style="display:none" />
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+            <span id="resume-upload-label">Click to upload or drag &amp; drop PDF</span>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="modal-cancel-btn" id="modal-cancel">Cancel</button>
+        <button class="modal-start-btn" id="modal-start">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          Start Interview
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Typing Indicator Template -->
+  <template id="typing-indicator-template">
+    <div class="message ai-message typing-indicator-msg" id="typing-indicator">
+      <div class="message-avatar">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke-linejoin="round"/>
+          <path d="M2 17L12 22L22 17" stroke-linejoin="round"/>
+          <path d="M2 12L12 17L22 12" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="message-bubble">
+        <div class="typing-dots">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+  </template>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <script type="module" src="./js/app.js"></script>
+</body>
+</html>
